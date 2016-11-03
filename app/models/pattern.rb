@@ -1,5 +1,5 @@
 class Pattern < ActiveRecord::Base
-  has_attached_file :upload, :default_url => '/images/no-pattern-image.png'
+  has_attached_file :upload, :default_url => '/images/no-pattern-image.png', :use_timestamp => false
   validates_attachment_content_type :upload, :content_type => /\Aimage\/.*\Z/
 
   # By default, every file uploaded will be named 'data'.
@@ -7,6 +7,10 @@ class Pattern < ActiveRecord::Base
   # This will also fix browser caching issues for updates
   def rename_upload
     self.upload.instance_write :file_name, "#{Time.now.to_i.to_s}.png"
+  end
+
+  def upload_url
+    self.upload.url
   end
 
   before_post_process :rename_upload
