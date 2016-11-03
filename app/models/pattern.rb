@@ -1,5 +1,5 @@
 class Pattern < ActiveRecord::Base
-  has_attached_file :upload, :default_url => '/images/no-pattern-image.png', :use_timestamp => false
+  has_attached_file :upload, :default_url => '/images/no-pattern-image.png'
   validates_attachment_content_type :upload, :content_type => /\Aimage\/.*\Z/
 
   # By default, every file uploaded will be named 'data'.
