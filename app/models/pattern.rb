@@ -10,7 +10,7 @@ class Pattern < ActiveRecord::Base
   end
 
   def upload_url
-    self.upload.url
+    upload.url
   end
 
   before_post_process :rename_upload
