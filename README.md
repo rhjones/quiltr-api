@@ -10,6 +10,10 @@ Install with `bundle install`.
 -   [`ruby`](https://www.ruby-lang.org/en/)
 -   [`postgres`](http://www.postgresql.org)
 
+Additional dependencies
+
+-   [ImageMagick](http://www.imagemagick.org/) (install with `brew install imagemagick`)
+
 ## Structure
 
 This template follows the standard project structure in Rails 4.

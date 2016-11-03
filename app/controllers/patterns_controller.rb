@@ -54,6 +54,6 @@ class PatternsController < ApplicationController
     end
 
     def pattern_params
-      params.require(:pattern).permit(:quilt_size)
+      params.require(:pattern).permit(:quilt_size, :upload)
     end
 end
