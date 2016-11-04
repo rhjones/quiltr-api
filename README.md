@@ -13,6 +13,7 @@ Install with `bundle install`.
 Additional dependencies
 
 -   [ImageMagick](http://www.imagemagick.org/) (install with `brew install imagemagick`)
+-   [paperclip](https://github.com/thoughtbot/paperclip)
 
 ## Structure
 
