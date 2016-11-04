@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161103024426) do
+ActiveRecord::Schema.define(version: 20161104132702) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,12 +27,12 @@ ActiveRecord::Schema.define(version: 20161103024426) do
 
   create_table "patterns", force: :cascade do |t|
     t.string   "quilt_size"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
-    t.string   "upload_file_name"
-    t.string   "upload_content_type"
-    t.integer  "upload_file_size"
-    t.datetime "upload_updated_at"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.string   "pattern_image_file_name"
+    t.string   "pattern_image_content_type"
+    t.integer  "pattern_image_file_size"
+    t.datetime "pattern_image_updated_at"
   end
 
   create_table "users", force: :cascade do |t|

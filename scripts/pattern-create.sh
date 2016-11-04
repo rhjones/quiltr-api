@@ -13,4 +13,4 @@ curl -v http://localhost:4741/patterns \
   -H 'Content-Type: multipart/form-data' \
   -H 'Accept: application/json' \
   -F "pattern[quilt_size]=queen" \
-  -F "pattern[upload]=@demo.png;type=image/png"
+  -F "pattern[pattern_image]=@demo.png;type=image/png"
