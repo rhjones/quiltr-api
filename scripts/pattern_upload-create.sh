@@ -9,8 +9,7 @@
 #     }
 #   }'
 
-curl -v http://localhost:4741/patterns \
+curl -v http://localhost:4741/pattern_uploads \
   -H 'Content-Type: multipart/form-data' \
   -H 'Accept: application/json' \
-  -F "pattern[quilt_size]=queen" \
-  -F "pattern[pattern_image]=@demo.png;type=image/png"
+  -F "pattern_upload[pattern_image]=@demo.png;type=image/png"

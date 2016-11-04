@@ -1,4 +1,4 @@
-class PatternsController < ApplicationController
+class PatternController < ApplicationController
   before_action :set_pattern, only: [:show, :update, :destroy]
 
   # GET /patterns
@@ -54,6 +54,6 @@ class PatternsController < ApplicationController
     end
 
     def pattern_params
-      params.require(:pattern).permit(:quilt_size, :pattern_image)
+      params.require(:pattern).permit(:quilt_size)
     end
 end

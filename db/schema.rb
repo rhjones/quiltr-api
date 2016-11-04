@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161104132702) do
+ActiveRecord::Schema.define(version: 20161104191644) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,14 +25,19 @@ ActiveRecord::Schema.define(version: 20161104132702) do
 
   add_index "examples", ["user_id"], name: "index_examples_on_user_id", using: :btree
 
-  create_table "patterns", force: :cascade do |t|
-    t.string   "quilt_size"
+  create_table "pattern_uploads", force: :cascade do |t|
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.string   "pattern_image_file_name"
     t.string   "pattern_image_content_type"
     t.integer  "pattern_image_file_size"
     t.datetime "pattern_image_updated_at"
+  end
+
+  create_table "patterns", force: :cascade do |t|
+    t.string   "quilt_size"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

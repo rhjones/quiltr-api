@@ -1,3 +1,3 @@
 class PatternSerializer < ActiveModel::Serializer
-  attributes :id, :quilt_size, :pattern_image_url
+  attributes :id, :quilt_size
 end
