@@ -1,5 +1,5 @@
 class ProjectUploadsController < ApplicationController
-  before_action :set_project_upload, only: [:show, :update, :destroy]
+  before_action :set_project_upload, only: [:show, :destroy]
 
   # GET /project_uploads
   # GET /project_uploads.json
@@ -22,18 +22,6 @@ class ProjectUploadsController < ApplicationController
 
     if @project_upload.save
       render json: @project_upload, status: :created, location: @project_upload
-    else
-      render json: @project_upload.errors, status: :unprocessable_entity
-    end
-  end
-
-  # PATCH/PUT /project_uploads/1
-  # PATCH/PUT /project_uploads/1.json
-  def update
-    @project_upload = ProjectUpload.find(params[:id])
-
-    if @project_upload.update(project_upload_params)
-      head :no_content
     else
       render json: @project_upload.errors, status: :unprocessable_entity
     end

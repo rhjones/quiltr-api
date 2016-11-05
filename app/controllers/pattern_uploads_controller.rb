@@ -1,5 +1,5 @@
 class PatternUploadsController < ApplicationController
-  before_action :set_pattern_upload, only: [:show, :update, :destroy]
+  before_action :set_pattern_upload, only: [:show, :destroy]
 
   # GET /pattern_uploads
   # GET /pattern_uploads.json
@@ -22,18 +22,6 @@ class PatternUploadsController < ApplicationController
 
     if @pattern_upload.save
       render json: @pattern_upload, status: :created, location: @pattern_upload
-    else
-      render json: @pattern_upload.errors, status: :unprocessable_entity
-    end
-  end
-
-  # PATCH/PUT /pattern_uploads/1
-  # PATCH/PUT /pattern_uploads/1.json
-  def update
-    @pattern_upload = PatternUpload.find(params[:id])
-
-    if @pattern_upload.update(pattern_upload_params)
-      head :no_content
     else
       render json: @pattern_upload.errors, status: :unprocessable_entity
     end
