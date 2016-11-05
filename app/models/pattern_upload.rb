@@ -1,5 +1,5 @@
 class PatternUpload < ActiveRecord::Base
-  belongs_to :pattern
+  belongs_to :pattern, inverse_of: :pattern_upload
 
   has_attached_file :pattern_image,
                     :styles => { :medium => '300x300>', :thumb => '100x100>' },

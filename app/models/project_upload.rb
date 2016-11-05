@@ -1,5 +1,6 @@
 class ProjectUpload < ActiveRecord::Base
-  belongs_to :project
+  belongs_to :project, inverse_of: :project_upload
+
 
   has_attached_file :photo,
                     :styles => { :medium => '300x300>', :thumb => '100x100>' },
