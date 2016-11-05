@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161105140511) do
+ActiveRecord::Schema.define(version: 20161105142920) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,9 +75,11 @@ ActiveRecord::Schema.define(version: 20161105140511) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "pattern_id"
+    t.integer  "user_id"
   end
 
   add_index "projects", ["pattern_id"], name: "index_projects_on_pattern_id", using: :btree
+  add_index "projects", ["user_id"], name: "index_projects_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",           null: false
@@ -95,4 +97,5 @@ ActiveRecord::Schema.define(version: 20161105140511) do
   add_foreign_key "pattern_uploads", "patterns"
   add_foreign_key "project_uploads", "projects"
   add_foreign_key "projects", "patterns"
+  add_foreign_key "projects", "users"
 end
