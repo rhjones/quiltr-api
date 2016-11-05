@@ -1,5 +1,5 @@
 class PatternsController < OpenReadController
-  before_action :set_pattern, only: [:show, :update, :destroy]
+  before_action :set_pattern, only: [:show, :create_favorite, :destroy]
 
   # GET /patterns
   # GET /patterns.json
@@ -15,25 +15,19 @@ class PatternsController < OpenReadController
     render json: @pattern
   end
 
+  # POST /patterns/1/favorites
+  def create_favorite
+    current_user.patterns << @pattern
+  end
+
   # POST /patterns
   # POST /patterns.json
   def create
     @pattern = Pattern.new(pattern_params)
 
     if @pattern.save
+      current_user.patterns << @pattern
       render json: @pattern, status: :created, location: @pattern
-    else
-      render json: @pattern.errors, status: :unprocessable_entity
-    end
-  end
-
-  # PATCH/PUT /patterns/1
-  # PATCH/PUT /patterns/1.json
-  def update
-    @pattern = Pattern.find(params[:id])
-
-    if @pattern.update(pattern_params)
-      head :no_content
     else
       render json: @pattern.errors, status: :unprocessable_entity
     end
