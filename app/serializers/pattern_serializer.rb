@@ -3,4 +3,16 @@ class PatternSerializer < ActiveModel::Serializer
   has_one :pattern_upload
   has_many :projects
   has_many :favorites
+
+  # def pattern_upload
+  #   object.pattern_upload.id
+  # end
+
+  def projects
+    object.projects.pluck(:id)
+  end
+
+  def favorites
+    object.favorites.pluck(:id)
+  end
 end

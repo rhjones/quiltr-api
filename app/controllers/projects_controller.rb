@@ -12,7 +12,7 @@ class ProjectsController < OpenReadController
   # GET /projects/1
   # GET /projects/1.json
   def show
-    @project = Projects.find(params[:id])
+    @project = Project.find(params[:id])
     render json: @project
   end
 
