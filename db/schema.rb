@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161105135216) do
+ActiveRecord::Schema.define(version: 20161105140511) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,14 @@ ActiveRecord::Schema.define(version: 20161105135216) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "patterns_users", id: false, force: :cascade do |t|
+    t.integer "pattern_id", null: false
+    t.integer "user_id",    null: false
+  end
+
+  add_index "patterns_users", ["pattern_id", "user_id"], name: "index_patterns_users_on_pattern_id_and_user_id", using: :btree
+  add_index "patterns_users", ["user_id", "pattern_id"], name: "index_patterns_users_on_user_id_and_pattern_id", using: :btree
 
   create_table "project_uploads", force: :cascade do |t|
     t.datetime "created_at",         null: false
