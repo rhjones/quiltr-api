@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161104191644) do
+ActiveRecord::Schema.define(version: 20161105014451) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,10 +32,16 @@ ActiveRecord::Schema.define(version: 20161104191644) do
     t.string   "pattern_image_content_type"
     t.integer  "pattern_image_file_size"
     t.datetime "pattern_image_updated_at"
+    t.integer  "pattern_id"
   end
 
+  add_index "pattern_uploads", ["pattern_id"], name: "index_pattern_uploads_on_pattern_id", using: :btree
+
   create_table "patterns", force: :cascade do |t|
+    t.string   "svg"
+    t.integer  "colors"
     t.string   "quilt_size"
+    t.integer  "block_size"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -52,4 +58,5 @@ ActiveRecord::Schema.define(version: 20161104191644) do
   add_index "users", ["token"], name: "index_users_on_token", unique: true, using: :btree
 
   add_foreign_key "examples", "users"
+  add_foreign_key "pattern_uploads", "patterns"
 end

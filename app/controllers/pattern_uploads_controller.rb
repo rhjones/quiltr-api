@@ -54,6 +54,6 @@ class PatternUploadsController < ApplicationController
     end
 
     def pattern_upload_params
-      params.require(:pattern_upload).permit(:pattern_image)
+      params.require(:pattern_upload).permit(:pattern_image, :pattern_id)
     end
 end

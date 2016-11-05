@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :patterns, except: [:new, :edit]
   resources :pattern_uploads, except: [:new, :edit]
   resources :examples, except: [:new, :edit]
   post '/sign-up' => 'users#signup'

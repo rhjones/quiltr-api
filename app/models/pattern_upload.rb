@@ -1,4 +1,6 @@
 class PatternUpload < ActiveRecord::Base
+  belongs_to :pattern
+
   has_attached_file :pattern_image,
                     :styles => { :medium => '300x300>', :thumb => '100x100>' },
                     :default_url => '/images/:style/missing.png'
