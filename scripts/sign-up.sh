@@ -6,7 +6,8 @@ curl --include --request POST http://localhost:4741/sign-up \
     "credentials": {
       "email": "an@example.email",
       "password": "an example password",
-      "password_confirmation": "an example password"
+      "password_confirmation": "an example password",
+      "username": "Starbuck"
     }
   }'
 
@@ -16,6 +17,7 @@ curl --include --request POST http://localhost:4741/sign-up \
     "credentials": {
       "email": "another@example.email",
       "password": "an example password",
-      "password_confirmation": "an example password"
+      "password_confirmation": "an example password",
+      "username": "Lee"
     }
   }'
