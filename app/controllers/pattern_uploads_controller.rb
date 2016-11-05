@@ -1,4 +1,4 @@
-class PatternUploadsController < ApplicationController
+class PatternUploadsController < OpenReadController
   before_action :set_pattern_upload, only: [:show, :destroy]
 
   # GET /pattern_uploads
