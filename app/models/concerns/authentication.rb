@@ -16,7 +16,12 @@ module Authentication
     has_secure_password
     before_create :set_token
     after_find :fix_up_token
-    validates :email, uniqueness: true
+    validates :email, uniqueness: {
+      message: 'A Quiltr user with that email already exists.'
+    }
+    validates :username, uniqueness: {
+      message: 'This username is already taken.'
+    }
   end
 
   def logout

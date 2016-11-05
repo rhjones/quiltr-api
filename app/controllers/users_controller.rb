@@ -3,11 +3,12 @@ class UsersController < ProtectedController
 
   # POST '/sign-up'
   def signup
-    user = User.create(user_creds)
-    if user.valid?
+    user = User.new(user_creds)
+    if user.save
       render json: user, status: :created
     else
-      head :bad_request
+      # head :bad_request
+      render json: user.errors, status: :unprocessable_entity
     end
   end
 
