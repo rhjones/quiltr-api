@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :projects, except: [:new, :edit]
   resources :project_uploads, except: [:new, :edit]
   resources :patterns, except: [:new, :edit]
   resources :pattern_uploads, except: [:new, :edit]

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161105014451) do
+ActiveRecord::Schema.define(version: 20161105133813) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,28 @@ ActiveRecord::Schema.define(version: 20161105014451) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "project_uploads", force: :cascade do |t|
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.integer  "project_id"
+  end
+
+  add_index "project_uploads", ["project_id"], name: "index_project_uploads_on_project_id", using: :btree
+
+  create_table "projects", force: :cascade do |t|
+    t.string   "name"
+    t.text     "notes"
+    t.date     "start_date"
+    t.date     "finish_date"
+    t.boolean  "finished"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",           null: false
     t.string   "token",           null: false
@@ -59,4 +81,5 @@ ActiveRecord::Schema.define(version: 20161105014451) do
 
   add_foreign_key "examples", "users"
   add_foreign_key "pattern_uploads", "patterns"
+  add_foreign_key "project_uploads", "projects"
 end

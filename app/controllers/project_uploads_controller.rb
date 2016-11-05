@@ -54,6 +54,6 @@ class ProjectUploadsController < ApplicationController
     end
 
     def project_upload_params
-      params.require(:project_upload).permit(:photo)
+      params.require(:project_upload).permit(:photo, :project_id)
     end
 end
