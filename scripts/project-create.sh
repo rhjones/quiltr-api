@@ -1,6 +1,7 @@
 #!/bin/bash
 
 curl --include --request POST http://localhost:4741/projects \
+  --header "Authorization: Token token=$TOKEN"
   --header "Content-Type: application/json" \
   --data '{
     "project": {

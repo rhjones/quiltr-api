@@ -1,4 +1,4 @@
-class ProjectUploadsController < ApplicationController
+class ProjectUploadsController < OpenReadController
   before_action :set_project_upload, only: [:show, :destroy]
 
   # GET /project_uploads
