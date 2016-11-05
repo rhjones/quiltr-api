@@ -1,5 +1,5 @@
 class ProjectsController < OpenReadController
-  before_action :set_project, only: [:show, :update, :destroy]
+  before_action :set_project, only: [:update, :destroy]
 
   # GET /projects
   # GET /projects.json
@@ -12,13 +12,14 @@ class ProjectsController < OpenReadController
   # GET /projects/1
   # GET /projects/1.json
   def show
+    @project = Projects.find(params[:id])
     render json: @project
   end
 
   # POST /projects
   # POST /projects.json
   def create
-    @project = Project.new(project_params)
+    @project = current_user.projects.build(project_params)
 
     if @project.save
       render json: @project, status: :created, location: @project
@@ -30,8 +31,6 @@ class ProjectsController < OpenReadController
   # PATCH/PUT /projects/1
   # PATCH/PUT /projects/1.json
   def update
-    @project = Project.find(params[:id])
-
     if @project.update(project_params)
       head :no_content
     else
@@ -50,7 +49,7 @@ class ProjectsController < OpenReadController
   private
 
     def set_project
-      @project = Project.find(params[:id])
+      @project = current_user.projects.find(params[:id])
     end
 
     def project_params
