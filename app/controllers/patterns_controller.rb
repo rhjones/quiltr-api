@@ -1,4 +1,4 @@
-class PatternsController < ApplicationController
+class PatternsController < OpenReadController
   before_action :set_pattern, only: [:show, :update, :destroy]
 
   # GET /patterns
