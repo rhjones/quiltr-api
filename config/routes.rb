@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
+  resources :favorites, only: [:create, :destroy]
   resources :projects, except: [:new, :edit]
   resources :project_uploads, except: [:new, :edit, :update]
   resources :patterns, except: [:new, :edit]
   resources :pattern_uploads, except: [:new, :edit, :update]
   resources :examples, except: [:new, :edit]
-  get '/favorites' => 'patterns#favorites'
-  post '/patterns/:id/favorites' => 'patterns#create_favorite'
   post '/sign-up' => 'users#signup'
   post '/sign-in' => 'users#signin'
   delete '/sign-out/:id' => 'users#signout'

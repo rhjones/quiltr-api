@@ -1,5 +1,5 @@
 class PatternsController < OpenReadController
-  before_action :set_pattern, only: [:show, :create_favorite, :destroy]
+  before_action :set_pattern, only: [:show, :destroy]
 
   # GET /patterns
   # GET /patterns.json
@@ -13,11 +13,6 @@ class PatternsController < OpenReadController
   # GET /patterns/1.json
   def show
     render json: @pattern
-  end
-
-  # POST /patterns/1/favorites
-  def create_favorite
-    current_user.patterns << @pattern
   end
 
   # POST /patterns
