@@ -1,6 +1,17 @@
 class FavoritesController < ProtectedController
   before_action :set_favorite, only: [:destroy]
 
+  def index
+    @favorites = Favorite.all
+
+    render json: @favorites
+  end
+
+  def show
+    @favorite = Favorite.find(params[:id])
+    render json: @favorite
+  end
+
   # POST /favorites
   # POST /favorites.json
   def create
