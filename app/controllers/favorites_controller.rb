@@ -1,4 +1,4 @@
-class FavoritesController < ProtectedController
+class FavoritesController < OpenReadController
   before_action :set_favorite, only: [:destroy]
 
   def index
