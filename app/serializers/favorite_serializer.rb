@@ -1,7 +1,7 @@
 class FavoriteSerializer < ActiveModel::Serializer
   attributes :id, :is_favorited_by_current_user
-  has_one :user
-  has_one :pattern
+  belongs_to :user
+  belongs_to :pattern
 
   def user
     object.user.id
