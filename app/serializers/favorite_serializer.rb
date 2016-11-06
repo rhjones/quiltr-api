@@ -1,5 +1,5 @@
 class FavoriteSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :is_favorited_by_current_user
   has_one :user
   has_one :pattern
 
@@ -9,5 +9,9 @@ class FavoriteSerializer < ActiveModel::Serializer
 
   def pattern
     object.pattern.id
+  end
+
+  def is_favorited_by_current_user
+    scope == object.user
   end
 end
