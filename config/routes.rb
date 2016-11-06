@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :favorites, only: [:create, :destroy]
+  resources :favorites, except: [:new, :edit, :update]
   resources :projects, except: [:new, :edit]
   resources :project_uploads, except: [:new, :edit, :update]
   resources :patterns, except: [:new, :edit]
