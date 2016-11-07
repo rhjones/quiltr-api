@@ -1,5 +1,5 @@
 class PatternSerializer < ActiveModel::Serializer
-  attributes :id, :svg, :colors, :quilt_size, :block_size
+  attributes :id, :svg, :colors, :quilt_size, :block_size, :color_scheme
   has_one :pattern_upload
   has_many :projects
   has_many :favorites

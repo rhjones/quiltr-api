@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161105192251) do
+ActiveRecord::Schema.define(version: 20161107143758) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,8 +52,9 @@ ActiveRecord::Schema.define(version: 20161105192251) do
     t.integer  "colors"
     t.string   "quilt_size"
     t.integer  "block_size"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.string   "color_scheme"
   end
 
   create_table "project_uploads", force: :cascade do |t|

@@ -43,6 +43,6 @@ class PatternsController < OpenReadController
     end
 
     def pattern_params
-      params.require(:pattern).permit(:svg, :colors, :quilt_size, :block_size)
+      params.require(:pattern).permit(:svg, :colors, :quilt_size, :block_size, :color_scheme)
     end
 end

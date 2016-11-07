@@ -6,8 +6,9 @@ curl --include --request POST http://localhost:4741/patterns \
   --data '{
     "pattern": {
       "svg": "",
-      "colors": "2",
-      "quilt_size": "lap",
-      "block_size": "6"
+      "colors": "4",
+      "quilt_size": "queen",
+      "block_size": "12",
+      "color_scheme": "neon"
     }
   }'
