@@ -1,5 +1,5 @@
 class ProjectSerializer < ActiveModel::Serializer
-  attributes :id, :name, :notes, :start_date, :finish_date, :finished
+  attributes :id, :name, :notes, :start_date, :finish_date, :finished, :belongs_to_current_user
   has_many :project_uploads
   # , inverse_of: :project
   belongs_to :pattern
@@ -15,5 +15,9 @@ class ProjectSerializer < ActiveModel::Serializer
 
   def pattern
     object.pattern.id
+  end
+
+  def belongs_to_current_user
+    scope == object.user
   end
 end
