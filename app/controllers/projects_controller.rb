@@ -4,7 +4,11 @@ class ProjectsController < OpenReadController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.all
+    @projects = if params[:user]
+                  User.find(params[:user]).projects.all
+                else
+                  Project.all
+                end
 
     render json: @projects
   end

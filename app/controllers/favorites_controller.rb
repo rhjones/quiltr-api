@@ -2,11 +2,16 @@ class FavoritesController < OpenReadController
   before_action :set_favorite, only: [:destroy]
 
   def index
-    @favorites = Favorite.all
+    @favorites = if params[:user]
+                   User.find(params[:user]).favorites.all
+                 else
+                   Favorite.all
+                 end
 
     render json: @favorites
   end
 
+  # GET /favorites/1
   def show
     @favorite = Favorite.find(params[:id])
     render json: @favorite
@@ -41,4 +46,5 @@ class FavoritesController < OpenReadController
     def favorite_params
       params.require(:favorite).permit(:pattern_id)
     end
+
 end
