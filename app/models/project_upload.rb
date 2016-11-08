@@ -1,5 +1,5 @@
 class ProjectUpload < ActiveRecord::Base
-  belongs_to :project, inverse_of: :project_upload
+  belongs_to :project, inverse_of: :project_uploads
 
 
   has_attached_file :photo,
