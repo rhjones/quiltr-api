@@ -1,4 +1,30 @@
-# Quiltr API
+# Quiltr
+
+Create patterns. Make quilts. Be inspired.
+
+- Live app: [Quiltr](https://rhjones.github.io/quiltr/)
+- Live API: [Quiltr API](https://quiltr.herokuapp.com/)
+- API repo on GitHub: [rhjones/quiltr-api](https://github.com/rhjones/quiltr-api)
+
+## About Quiltr
+
+[Quiltr](https://rhjones.github.io/quiltr/) lets users generate random geometric quilt patterns in a range of sizes and color schemes. Users can save patterns to their "favorites" and browse a gallery of all patterns on the site. Users can also create projects based on these patterns and share their notes about and photos of each project.
+
+Quiltr is built in Ember and relies on a Rails API/Postgres to persist data. Code for that API can be found at [rhjones/quiltr-api](https://github.com/rhjones/quiltr-api).
+
+## Data Model
+
+An entity relationship diagram is available at [here](https://github.com/rhjones/quiltr/blob/docs/readme-img/quiltr_ERD.png).
+
+Resources include:
+
+- Users
+- Patterns
+- Favorites (join between patterns and users)
+- Projects
+- Pattern uploads
+- Project uploads
+
 
 ## Dependencies
 
@@ -15,12 +41,12 @@ Additional dependencies
 -   [ImageMagick](http://www.imagemagick.org/) (install with `brew install imagemagick`)
 -   [paperclip](https://github.com/thoughtbot/paperclip)
 
-## Structure
+## Tests
 
-This template follows the standard project structure in Rails 4.
-
-`curl` command scripts are stored in [`scripts`](scripts) with names that
+`curl` command scripts for all actions are stored in [`scripts`](scripts) with names that
 correspond to API actions.
+
+Note that in order to run the upload script, you must run it from within the scripts directory.
 
 
 ## API
