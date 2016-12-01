@@ -26,7 +26,9 @@ Resources include:
 - Project uploads
 
 
-## Dependencies
+## Setup & Dependencies
+
+### Dependencies
 
 Install with `bundle install`.
 
@@ -35,11 +37,18 @@ Install with `bundle install`.
 -   [`active_model_serializers`](https://github.com/rails-api/active_model_serializers)
 -   [`ruby`](https://www.ruby-lang.org/en/)
 -   [`postgres`](http://www.postgresql.org)
+-   [paperclip](https://github.com/thoughtbot/paperclip)
 
 Additional dependencies
 
 -   [ImageMagick](http://www.imagemagick.org/) (install with `brew install imagemagick`)
--   [paperclip](https://github.com/thoughtbot/paperclip)
+
+### Local setup
+
+-   `touch .env`
+-   echo SECRET_TOKEN=$(bundle exec rake secret) >> .env
+-   echo SECRET_KEY_BASE_DEVELOPMENT=$(bundle exec rake secret) >> .env
+
 
 ## Tests
 
